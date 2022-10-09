@@ -1,0 +1,52 @@
+// color
+$bg-dark: black;
+$bg-card-light: #F8F8F8;
+$bg-price: #DEDDDC;
+$bg-btn: #E1B067;
+$bg-size-btn: #CCCCCC;
+$link-color: red;
+$gradient-color: linear-gradient(180deg, #F21299 0%, #1B02B5 100%);;
+
+// text color
+$light-text-color: white;
+$dark-text-color: black;
+$gray-text-color: #0f0d0d;
+$green-text-color: #1ED90E;
+$sub-title-color: #CBC9C9;
+$login-text-color: rgba(0, 0, 0, 0.6);
+$link-color:#152AEB;
+$face-book: #1877F2;
+$login: #6200EE;
+$size: linear-gradient(90deg, rgba(97,129,243,1) 100%, rgba(124,151,245,1) 100%);
+// border color
+$form-border-color: #AE18E2;
+
+// font weight
+$thin :100;
+$light :300;
+$regular :400;
+$mediumW: 500;
+$semiBold :600;
+$bold :900;
+
+// Font size
+
+$xxsmall: 16px;
+$xsmall: 18px;
+$small: 20px;
+$medium: 24px;
+$large: 29px;
+$midlarge: 40px;
+$xlarge: 48px;
+
+
+@mixin text($text-color: $light-text-color, $font-w:$regular, $font-s: $medium){
+    padding: 10px 0;
+    color: $text-color;
+    font-weight: $font-w;
+    font-size: $font-s;
+}
+
+
+
+
