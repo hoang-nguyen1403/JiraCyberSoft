@@ -1,14 +1,12 @@
 // color
-$bg-dark: black;
-$bg-card-light: #F8F8F8;
-$bg-price: #DEDDDC;
-$bg-btn: #E1B067;
-$bg-size-btn: #CCCCCC;
-$link-color: red;
-$gradient-color: linear-gradient(180deg, #F21299 0%, #1B02B5 100%);;
+$bg_narbar: #0747a6;
+$navbar_width: 64px;
+
+$bg_menu_bar: #f4f5f7;
+$title_color: #43536f;
 
 // text color
-$light-text-color: white;
+$light-color: white;
 $dark-text-color: black;
 $gray-text-color: #0f0d0d;
 $green-text-color: #1ED90E;
@@ -40,13 +38,19 @@ $midlarge: 40px;
 $xlarge: 48px;
 
 
-@mixin text($text-color: $light-text-color, $font-w:$regular, $font-s: $medium){
+@mixin text($text-color: $bg_narbar, $font-w:$regular, $font-s: $medium){
     padding: 10px 0;
     color: $text-color;
     font-weight: $font-w;
     font-size: $font-s;
 }
 
+@mixin headerText($text-color: $bg_narbar, $font-w:$regular, $font-s: $midlarge){
+    padding: 10px 0;
+    color: $text-color;
+    font-weight: $font-w;
+    font-size: $font-s;
+}
 
 
 
