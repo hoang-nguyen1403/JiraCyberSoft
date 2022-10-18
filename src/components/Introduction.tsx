@@ -9,12 +9,12 @@ export default function Introduction({}: Props) {
       <Col span={24} className="logo-left">
         <img className="logo-img" src="logo192.png"></img>
       </Col>
-      {/* <Col span={20} className="logo-right">
+      <Col span={20} className="logo-right">
         <Row>
           <h4 className="title"> React Jira Clone</h4>
           <p> Software</p>
         </Row>
-      </Col> */}
+      </Col>
     </Row>
   );
 }

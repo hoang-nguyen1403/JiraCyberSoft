@@ -82,7 +82,7 @@
           // margin-right: ; 
           border-top: 5px solid transparent;
           border-bottom: 5px solid transparent;
-          border-right: 8px solid  rgba(0, 0, 0, 0.8);;
+          border-right: 8px solid  $hover-bg;
           transform: translateX(-10px) translateY(11px);
         }
       }
@@ -120,34 +120,75 @@
 
 .home{
   display: flex;
-  
+  position: relative;
   .slider_bar{
     background-color: $bg_menu_bar;
-    .intro-logo{
-      // height: 100%;
-      // width: 100%;
-      // padding: 20px;
-      padding-bottom: 0;
-      background-color: $bg_menu_bar;
-      .logo-left{
-        .logo-img{
-          margin-right: 10px;
-          width: 16px;
-          height: 16px;
+    
+    border-right: 2px solid $bg_narbar;
+    
+    .menubar_content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      .header_logo{
+        .intro-logo{
+          .logo-left{
+            .logo-img{
+              width: 100%;
+              padding: 18px;
+            }
+          }
+          .logo-right{
+            padding-top: 18px;
+            .title{
+              
+              font-size: $xxsmall;
+              font-weight: $mediumW;
+              margin: 0;
+            }
+          }
         }
       }
-      .logo-right{
-        .title{
-          color: title_color;
-          font-weight: $regular ;
-          font-size: $xsmall;
-          margin: 0;
+      .body_content{
+        width: 100%;
+        .menu_item{
+          color: $dark-text-color;
+          transition: all 0.5s ease;
+          .item_logo{
+            padding: 20px 0px;
+            font-size: 14px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span{
+              font-size: 20px;
+            }
+          }
+          .item_title{
+            padding: 20px 0;
+            font-size: 16px;
+            margin: 0;
+          }
+          &:hover{
+            color: $bg_narbar;
+            background-color: rgba(0, 0, 0, 0.1);
+          }
         }
       }
     }
-    .menu_bar{
-      background-color: $bg_menu_bar;
+
+    
+    
+  }
+  .collapsed-btn{
+    @include collapsed-btn;
+    &:hover .slider_bar{
+      border-right: 4px solid $bg_narbar;
     }
   }
+
+  
   
 }

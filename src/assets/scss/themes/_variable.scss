@@ -19,6 +19,9 @@ $size: linear-gradient(90deg, rgba(97,129,243,1) 100%, rgba(124,151,245,1) 100%)
 // border color
 $form-border-color: #AE18E2;
 
+$hover-bg: rgba(0, 0, 0, 0.8);
+$hover-bg: rgba(0, 0, 0, 0.8);
+
 // font weight
 $thin :100;
 $light :300;
@@ -36,6 +39,26 @@ $medium: 24px;
 $large: 29px;
 $midlarge: 40px;
 $xlarge: 48px;
+
+@mixin collapsed-btn(){
+    width: 30px;
+    height: 30px;
+    border-radius: 50% ;
+    border: none;
+    background-color: $bg_narbar;
+    color: $light-color;
+    position: absolute;
+    right: -17px;
+    top: 15px;
+    transition: all 0.4s ease;
+    &:hover {
+        cursor: pointer;
+        background-color: $light-color;
+        color: $bg_narbar;
+        border: 2px solid $bg_narbar;
+        
+    }
+}
 
 
 @mixin text($text-color: $bg_narbar, $font-w:$regular, $font-s: $medium){
