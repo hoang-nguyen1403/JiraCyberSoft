@@ -18,6 +18,8 @@ import Login from "./pages/Login/Login";
 import { createBrowserHistory } from "history";
 import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 import ProductManagement from "./pages/ProductManagement/ProductManagement";
+import ProjectCreation from "./pages/ProjectCreation/ProjectCreation";
+import UserManagement from "./pages/UserManagement/UserManagement";
 
 export const history = createBrowserHistory({ window });
 
@@ -38,8 +40,14 @@ root.render(
               path="/productManagement"
               element={<ProductManagement />}
             ></Route>
-           
-            
+            <Route
+              path="/taskManagement"
+              element={<ProjectCreation />}
+            ></Route>
+            <Route
+              path="/userManagement"
+              element={<UserManagement />}
+            ></Route>
           </Route>
         </Routes>
       </HistoryRouter>

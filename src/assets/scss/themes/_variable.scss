@@ -75,5 +75,16 @@ $xlarge: 48px;
     font-size: $font-s;
 }
 
+@mixin myBtn(){
+    color: $light-color;
+    background-color: $bg_narbar;
+    border: none;
+    transition: all 0.6 ease;
+    &:hover{
+        color: $bg_narbar;
+        background-color: $light-color;
+        border: 2px solid $bg_narbar;
+    }
+}
 
 

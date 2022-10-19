@@ -1,0 +1,30 @@
+@import '../themes/variable';
+
+
+
+.user_management{
+    background-color: $light-color;
+    width: 100%;
+    .searching{
+        padding: 0 50px;
+        .searchBar{
+            width: 100%;
+        }
+        .searchingBtn{
+            width: 20%;
+            // @include myBtn();
+        }
+    }
+    .registerUser{
+        padding: 20px 50px;
+        .registerBtn{
+            @include myBtn();
+        }
+    }
+    .userTableSection{
+        padding: 20px 50px;
+        .userTable{
+            width: 100%;
+        }
+    }
+}

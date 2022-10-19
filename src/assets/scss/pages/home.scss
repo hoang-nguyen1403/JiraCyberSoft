@@ -147,11 +147,13 @@
               font-weight: $mediumW;
               margin: 0;
             }
+            
           }
         }
       }
       .body_content{
         width: 100%;
+        
         .menu_item{
           color: $dark-text-color;
           transition: all 0.5s ease;
@@ -172,9 +174,17 @@
             margin: 0;
           }
           &:hover{
-            color: $bg_narbar;
             background-color: rgba(0, 0, 0, 0.1);
           }
+          .mylink{
+            color: $dark-text-color;
+          }
+          
+        }
+        .actived{
+          background-color: rgba(0, 0, 0, 0.2);
+          font-weight: $semiBold;
+          // color: $bg_narbar;
         }
       }
     }
