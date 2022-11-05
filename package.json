@@ -54,6 +54,9 @@
       "last 1 safari version"
     ]
   },
+  "browser": {
+    "buffer": false
+  },  
   "devDependencies": {
     "@types/react-highlight-words": "^0.16.4",
     "@types/react-html-parser": "^2.0.2"
