@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, PageHeader, AutoComplete, Input, Button, Modal } from "antd";
 import { Space, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import type { SelectProps } from "antd/es/select";
 import {
-  DesktopOutlined,
-  FileOutlined,
-  TableOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import { AppDispatch, RootState } from "../../redux/configStore";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllUser } from "../../redux/reducer/userManagementReducer";
 type Props = {};
 
 const routes = [
   {
     path: "index",
-    breadcrumbName: "First-level Menu",
+    breadcrumbName: "reactJiraClone",
   },
   {
     path: "first",
@@ -58,89 +58,57 @@ const searchResult = (query: string) =>
 
 interface DataType {
   key: string;
+  stt: string;
+  email: string;
   name: string;
-  age: number;
-  address: string;
-  tags: string[];
+  phone: number;
+  // tags: string[];
 }
 
 const columns: ColumnsType<DataType> = [
   {
+    title: "userId",
+    dataIndex: "userId",
+    key: "userId",
+    render: (text) => <>{text}</>,
+  },
+  {
     title: "Name",
     dataIndex: "name",
     key: "name",
-    render: (text) => <a>{text}</a>,
+    render: (text) => <>{text}</>,
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
+    title: "phone",
+    dataIndex: "phoneNumber",
+    key: "phoneNumber",
+    render: (text) => <>{text}</>,
   },
   {
     title: "Action",
     key: "action",
     render: (_, record) => (
       <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
+        <Button>Edit</Button>
+        <Button>Delete</Button>
       </Space>
     ),
   },
 ];
+// https://jiranew.cybersoft.edu.vn/api/Users/deleteUser?id=3081
 
-const data: DataType[] = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-];
 
 export default function UserManagement({}: Props) {
   const [options, setOptions] = useState<SelectProps<object>["options"]>([]);
   const [open, setOpen] = useState(false);
-
+  
+  const {allUser} = useSelector((state:RootState)=>state.userManagementReducer);
+  
+  const dispatch: AppDispatch= useDispatch()
+  useEffect(()=>{
+    const actionAPI = getAllUser();
+    dispatch(actionAPI)
+  }, [])
   const handleSearch = (value: string) => {
     setOptions(value ? searchResult(value) : []);
   };
@@ -199,7 +167,7 @@ export default function UserManagement({}: Props) {
           </AutoComplete>
         </Row>
         <Row className='userTableSection'>
-        <Table columns={columns} dataSource={data} className='userTable'/>
+          <Table columns={columns} dataSource={allUser} className='userTable'/>
         </Row>
       </Col>
     </div>

@@ -4,6 +4,10 @@
 .navbar_left{
   background-color: $bg_narbar;
   width: $navbar_width;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -123,7 +127,7 @@
   position: relative;
   .slider_bar{
     background-color: $bg_menu_bar;
-    
+    margin-left: 60px;
     border-right: 2px solid $bg_narbar;
     
     .menubar_content{

@@ -33,7 +33,7 @@ export default function Navbar({}: Props) {
     <div className="navbar_left">
       <div className="top">
         <NavLink to="">
-          <img className="logo" src="logo.png" alt="logo" />
+          <img className="logo" src="./logo.png" alt="logo" />
         </NavLink>
         <button className="item-btn">
           <i className="fa-solid fa-magnifying-glass default-icon"></i>

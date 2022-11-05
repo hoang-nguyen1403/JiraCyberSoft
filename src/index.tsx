@@ -31,13 +31,14 @@ root.render(
     <Provider store={store}>
       <HistoryRouter history={history}>
         <Routes>
-          <Route path="" element={<Login />}>
-            <Route path="/login" element={<Login />} />
-          </Route>
-          <Route path="" element={<Home />}>
-            <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
-            <Route
-              path="/productManagement"
+        <Route path="/login" element={<Login />} />
+          <Route  path="" element={<Home />}>
+            
+            <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+                <Route path=':id' ></Route>
+            </Route>
+            <Route index
+                path="/productManagement"
               element={<ProductManagement />}
             ></Route>
             <Route

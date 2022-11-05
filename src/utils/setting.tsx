@@ -78,7 +78,6 @@ http.interceptors.request.use(
       ["Authorization"]: `Bearer ${token}`,
       ["TokenCybersoft"]: TOKEN_CYBERSHOP,
     };
-    console.log("===", config.headers);
     // config.headers['Content-Type'] = 'application/json';
     return config;
   },
@@ -95,11 +94,11 @@ http.interceptors.response.use(
   (err) => {
     console.log(err.response.status);
     if (err.response.status === 400 || err.response.status === 404) {
-      history.push("/login");
+      // history.push("/login");
       return Promise.reject(err);
     }
     if (err.response.status === 401 || err.response.status === 403) {
-      alert("Token ko hop le! vui long dang nhap lai");
+      // alert("Token ko hop le! vui long dang nhap lai");
       history.push("/login");
       return Promise.reject(err);
     }

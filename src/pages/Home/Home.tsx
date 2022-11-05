@@ -9,7 +9,7 @@ type Props = {};
 
 export default function Home({ }: Props) {
   return (
-    <div className='home'>
+    <div className='home' style={{ height: "100%" }}>
       <Navbar></Navbar>
       <Layout style={{ minHeight: "100vh" }}>
         <MenuBar></MenuBar>

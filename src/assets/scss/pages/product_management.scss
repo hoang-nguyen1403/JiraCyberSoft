@@ -1,0 +1,12 @@
+@import '../themes/variable';
+
+.projectManagement{
+    background-color: $light-color;
+    width: 100%;
+    .projectTableSection{
+        padding: 20px 50px;
+        .projectTable{
+            width: 100%;
+        }
+    }
+}
