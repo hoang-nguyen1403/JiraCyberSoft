@@ -25,6 +25,12 @@ export interface userLoginInfo {
   email: string;
   passWord: string;
 }
+export interface userRegisterInfo{
+  email:string;
+  password:string;
+  name: string;
+  phoneNumber:string;
+}
 
 const initialState = {
   userLogin: getStoreJson(USER_LOGIN),
@@ -43,6 +49,24 @@ const userReducer = createSlice({
 export const { getProfileAction } = userReducer.actions;
 
 export default userReducer.reducer;
+
+export const registerApi = (userRegister:userRegisterInfo) => {
+  return async () => {
+    try {
+      const result = await http.post("/Users/signup", userRegister);
+      //Sau khi đăng nhập thành công => lưu dữ liệu vào localstorage hoặc cookie
+      console.log(result);
+      //Chuyển hướng về profile, trang quên mật khẩu
+      alert("Đăng ký thành công!");
+      history.push("/login");
+      //Sau khi đăng nhập thành công thì dispatch action getProfile
+    } catch (err) {
+      alert("Tài khoản đã tồn tại");
+      history.push("/register");
+      console.log(err);
+    }
+  };
+};
 
 export const LoginAPI = (userLogin: userLoginInfo) => {
   return async (dispatch: AppDispatch) => {
