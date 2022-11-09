@@ -18,7 +18,6 @@ type Props = {};
 
 export default function Register({}: Props) {
   const onFinish = (values: any) => {
-    debugger
     console.log("Received values of form: ", values);
   };
   return (
