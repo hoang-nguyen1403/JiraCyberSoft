@@ -46,6 +46,7 @@ root.render(
             <Route path="/taskManagement" element={<ProjectCreation />}></Route>
             <Route path="/userManagement" element={<UserManagement />}></Route>
           </Route>
+          <Route path="*" element={<Navigate to="" />}></Route>
         </Routes>
       </HistoryRouter>
     </Provider>

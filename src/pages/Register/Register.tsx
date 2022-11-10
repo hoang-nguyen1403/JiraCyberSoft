@@ -1,25 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/configStore";
-import { registerApi } from "../../redux/reducer/userReducer";
+import userReducer, { registerApi } from "../../redux/reducer/userReducer";
 
 type Props = {};
 
 export default function Register({}: Props) {
-  interface userRegisterInfo {
-    email: "";
-    password: "";
-    name: "";
-    phoneNumber: "";
-  }
-  const dispatch = useDispatch();
+  const handleChangeInput = (e: any) => {
+    const { id, value } = e.target;
+  };
   const onFinish = (values: any) => {
     console.log("Received values of form: ", values);
-
-    dispatch(values);
   };
   return (
     <>
@@ -44,7 +38,12 @@ export default function Register({}: Props) {
                 },
               ]}
             >
-              <Input name="email" size="large" placeholder="Email" />
+              <Input
+                name="email"
+                size="large"
+                placeholder="Email"
+                onInput={handleChangeInput}
+              />
             </Form.Item>
           </div>
 
@@ -62,6 +61,7 @@ export default function Register({}: Props) {
                 name="password"
                 size="large"
                 placeholder="Password"
+                onInput={handleChangeInput}
               />
             </Form.Item>
           </div>
@@ -71,7 +71,13 @@ export default function Register({}: Props) {
               name="name"
               rules={[{ required: true, message: "Please input your Name!" }]}
             >
-              <Input type="text" name="name" size="large" placeholder="Name" />
+              <Input
+                type="text"
+                name="name"
+                size="large"
+                placeholder="Name"
+                onInput={handleChangeInput}
+              />
             </Form.Item>
           </div>
 
@@ -87,6 +93,7 @@ export default function Register({}: Props) {
                 name="phoneNumber"
                 size="large"
                 placeholder="Phonenumber"
+                onInput={handleChangeInput}
               />
             </Form.Item>
           </div>
