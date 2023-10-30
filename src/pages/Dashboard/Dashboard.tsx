@@ -10,24 +10,35 @@ const { Header, Content, Footer, Sider } = Layout;
 
 type Props = {};
 
+interface MemberInfoType {
+  userId: number;
+  name: string;
+  avatar: string;
+  email: string;
+  phoneNumber: number;
+}
+
 export default function Dashboard({}: Props) {
   const params = useParams();
-  const dispatch:AppDispatch = useDispatch()
+  const dispatch: AppDispatch = useDispatch();
   const getProductDetail = () => {
-    let {id} = params
-    if (id === undefined){
-      return
+    let { id } = params;
+    if (id === undefined) {
+      return;
     }
     const actionThunk = getProductDetailAPI(params);
     dispatch(actionThunk);
   };
-  useEffect(()=>{
-    getProductDetail()
-  }, [])
+  useEffect(() => {
+    getProductDetail();
+  }, []);
 
-  const {projectDetail} = useSelector((state:RootState)=>state.kanbanBoardReducer)
-
-  console.log(projectDetail)
+  const { projectDetail } = useSelector(
+    (state: RootState) => state.kanbanBoardReducer
+  );
+    for (let key in projectDetail) {
+    console.log(key)
+  }
 
   const routes = [
     {
@@ -41,8 +52,8 @@ export default function Dashboard({}: Props) {
   ];
   return (
     <Layout className="dashboard">
-      <Content style={{ margin: "0 16px" }} >
-        <Col span={24} >
+      <Content style={{ margin: "0 16px" }}>
+        <Col span={24}>
           <Row>
             <PageHeader
               className="site-page-header"
@@ -50,8 +61,8 @@ export default function Dashboard({}: Props) {
               breadcrumb={{ routes }}
             />
           </Row>
-          <Row className='info'>
-            <MemberInfo></MemberInfo>
+          <Row className="info">
+            <MemberInfo members={[]}></MemberInfo>
           </Row>
         </Col>
       </Content>

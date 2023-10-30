@@ -32,19 +32,25 @@ root.render(
     <Provider store={store}>
       <HistoryRouter history={history}>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<UserRegisterTemplate />}></Route>
-          <Route path="" element={<Home />}>
-            <Route path="/dashboard" element={<Dashboard></Dashboard>}>
-              <Route path=":id"></Route>
+          <Route path="" element={<Login />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="" element={<Home></Home>}>
+              <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+                <Route path=":id"></Route>
+              </Route>
+              <Route
+                path="/productManagement"
+                element={<ProductManagement />}
+              ></Route>
+              <Route
+                path="/taskManagement"
+                element={<ProjectCreation />}
+              ></Route>
+              <Route
+                path="/userManagement"
+                element={<UserManagement />}
+              ></Route>
             </Route>
-            <Route
-              index
-              path="/productManagement"
-              element={<ProductManagement />}
-            ></Route>
-            <Route path="/taskManagement" element={<ProjectCreation />}></Route>
-            <Route path="/userManagement" element={<UserManagement />}></Route>
           </Route>
           <Route path="*" element={<Navigate to="" />}></Route>
         </Routes>
