@@ -20,6 +20,7 @@ import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 import ProductManagement from "./pages/ProductManagement/ProductManagement";
 import ProjectCreation from "./pages/ProjectCreation/ProjectCreation";
 import UserManagement from "./pages/UserManagement/UserManagement";
+import UserRegisterTemplate from "./templates/userRegisterTemplate/userRegisterTemplate";
 
 export const history = createBrowserHistory({ window });
 
@@ -51,6 +52,7 @@ root.render(
               ></Route>
             </Route>
           </Route>
+          <Route path="*" element={<Navigate to="" />}></Route>
         </Routes>
       </HistoryRouter>
     </Provider>
